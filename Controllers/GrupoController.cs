@@ -47,7 +47,8 @@ namespace relatorio.Controllers
             else 
             {
                 return BadRequest(new {
-                    Mensagem = "Não foi possivel executar",
+                    Object = model,
+                    Text = "Não foi possivel executar",
                     Erro = true
                 });
             }
