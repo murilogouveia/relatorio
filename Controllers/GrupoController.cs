@@ -38,15 +38,18 @@ namespace relatorio.Controllers
             {
                 context.Grupos.Add(model);
                 await context.SaveChangesAsync();
-                return Ok(model);
+                return Ok(new {
+                    Object = model,
+                    Text = "Grupo salvo com sucesso",
+                    Erro = false
+                });
             }
             else 
             {
-                return NotFound(new {
+                return BadRequest(new {
                     Mensagem = "Não foi possivel executar",
                     Erro = true
                 });
-                //return BadRequest(ModelState);
             }
         }
 
@@ -57,7 +60,11 @@ namespace relatorio.Controllers
         {
             context.Entry<Grupo>(model).State = EntityState.Modified;
             await context.SaveChangesAsync();
-            return Ok(model);
+            return Ok(new {
+                Object = model,
+                Text = "Atualizador com sucesso",
+                Erro = false
+            });
         }
 
         [HttpDelete]
@@ -67,7 +74,10 @@ namespace relatorio.Controllers
         {
             context.Grupos.Remove(model);
             await context.SaveChangesAsync();
-            return Ok();
+            return Ok(new {
+                Text = "Removido com sucesso",
+                Erro = false
+            });
         }
     }
 }
