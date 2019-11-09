@@ -40,16 +40,16 @@ namespace relatorio.Controllers
                 await context.SaveChangesAsync();
                 return Ok(new {
                     Object = model,
-                    Text = "Salvo com sucesso",
-                    Erro = false
+                    Message = "Salvo com sucesso",
+                    Error = false
                 });
             }
             else 
             {
                 return BadRequest(new {
                     Object = model,
-                    Text = "Não foi possivel salvar",
-                    Erro = true
+                    Message = "Não foi possivel salvar",
+                    Error = true
                 });
             }
         }
@@ -63,8 +63,8 @@ namespace relatorio.Controllers
             await context.SaveChangesAsync();
             return Ok(new {
                 Object = model,
-                Text = "Atualizador com sucesso",
-                Erro = false
+                Message = "Atualizado com sucesso",
+                Error = false
             });
         }
 
@@ -76,8 +76,8 @@ namespace relatorio.Controllers
             context.Grupos.Remove(model);
             await context.SaveChangesAsync();
             return Ok(new {
-                Text = "Removido com sucesso",
-                Erro = false
+                Message = "Removido com sucesso",
+                Error = false
             });
         }
     }
