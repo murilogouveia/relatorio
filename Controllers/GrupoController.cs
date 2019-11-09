@@ -42,7 +42,11 @@ namespace relatorio.Controllers
             }
             else 
             {
-                return BadRequest(ModelState);
+                return NotFound(new {
+                    Mensagem = "Não foi possivel executar",
+                    Erro = true
+                });
+                //return BadRequest(ModelState);
             }
         }
 
