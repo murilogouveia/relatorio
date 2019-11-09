@@ -40,7 +40,7 @@ namespace relatorio.Controllers
                 await context.SaveChangesAsync();
                 return Ok(new {
                     Object = model,
-                    Text = "Grupo salvo com sucesso",
+                    Text = "Salvo com sucesso",
                     Erro = false
                 });
             }
@@ -48,7 +48,7 @@ namespace relatorio.Controllers
             {
                 return BadRequest(new {
                     Object = model,
-                    Text = "Não foi possivel executar",
+                    Text = "Não foi possivel salvar",
                     Erro = true
                 });
             }
