@@ -63,7 +63,7 @@ namespace relatorio.Controllers
         {
             context.Grupos.Remove(model);
             await context.SaveChangesAsync();
-            return Ok("Deletado com sucesso!");
+            return Ok();
         }
     }
 }
