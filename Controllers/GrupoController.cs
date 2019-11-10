@@ -32,7 +32,8 @@ namespace relatorio.Controllers
 
         [HttpPost]
         [Route("")]
-        public async Task<ActionResult<Grupo>> Post([FromServices] DataContext context, [FromBody] Grupo model)
+        public async Task<ActionResult<Grupo>> Post([FromServices] DataContext context, 
+            [FromBody] Grupo model)
         {
             if(ModelState.IsValid)
             {
