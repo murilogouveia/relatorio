@@ -32,22 +32,24 @@ namespace relatorio.Controllers
 
         [HttpPost]
         [Route("")]
-        public async Task<ActionResult<Grupo>> Post([FromServices] DataContext context, 
+        public async Task<ActionResult<Grupo>> Post([FromServices] DataContext context,
             [FromBody] Grupo model)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 context.Grupos.Add(model);
                 await context.SaveChangesAsync();
-                return Ok(new {
+                return Ok(new
+                {
                     Object = model,
                     Message = "Salvo com sucesso",
                     Error = false
                 });
             }
-            else 
+            else
             {
-                return BadRequest(new {
+                return BadRequest(new
+                {
                     Object = model,
                     Message = "Não foi possivel salvar",
                     Error = true
@@ -57,12 +59,13 @@ namespace relatorio.Controllers
 
         [HttpPut]
         [Route("")]
-        public async Task<ActionResult<Grupo>> Update([FromServices] DataContext context, 
+        public async Task<ActionResult<Grupo>> Update([FromServices] DataContext context,
             [FromBody] Grupo model)
         {
             context.Entry<Grupo>(model).State = EntityState.Modified;
             await context.SaveChangesAsync();
-            return Ok(new {
+            return Ok(new
+            {
                 Object = model,
                 Message = "Atualizado com sucesso",
                 Error = false
@@ -71,12 +74,13 @@ namespace relatorio.Controllers
 
         [HttpDelete]
         [Route("")]
-        public async Task<ActionResult<Grupo>> Delete([FromServices] DataContext context, 
+        public async Task<ActionResult<Grupo>> Delete([FromServices] DataContext context,
             [FromBody] Grupo model)
         {
             context.Grupos.Remove(model);
             await context.SaveChangesAsync();
-            return Ok(new {
+            return Ok(new
+            {
                 Message = "Removido com sucesso",
                 Error = false
             });
