@@ -26,12 +26,12 @@ namespace relatorio.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Responsavel")
-                        .HasColumnType("varchar(80) CHARACTER SET utf8mb4")
+                        .HasColumnType("varchar(80)")
                         .HasMaxLength(80);
 
                     b.HasKey("Id");
 
-                    b.ToTable("Grupos");
+                    b.ToTable("Grupo");
                 });
 
             modelBuilder.Entity("relatorio.Models.Publicador", b =>
@@ -50,7 +50,8 @@ namespace relatorio.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Nome")
-                        .HasColumnType("varchar(80) CHARACTER SET utf8mb4")
+                        .IsRequired()
+                        .HasColumnType("varchar(80)")
                         .HasMaxLength(80);
 
                     b.Property<bool>("PioneiroAuxiliar")
@@ -66,13 +67,13 @@ namespace relatorio.Migrations
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Sexo")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                        .HasColumnType("varchar(5)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("GrupoId");
 
-                    b.ToTable("Publicadores");
+                    b.ToTable("Publicador");
                 });
 
             modelBuilder.Entity("relatorio.Models.Publicador", b =>
