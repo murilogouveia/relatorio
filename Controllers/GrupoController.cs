@@ -10,7 +10,7 @@ using relatorio.Models;
 namespace relatorio.Controllers
 {
     [ApiController]
-    [Route("v1/grupos")]
+    [Route("v1/grupo")]
     public class GrupoController : ControllerBase
     {
         [HttpGet]
