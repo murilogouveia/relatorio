@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,7 +16,10 @@ namespace relatorio.Controllers
         [Route("")]
         public async Task<ActionResult<List<Grupo>>> Get([FromServices] DataContext context)
         {
-            var grupos = await context.Grupos.ToListAsync();
+            var grupos = await context.Grupos
+                .AsNoTracking()
+                .ToListAsync();
+            
             return Ok(grupos);
         }
 
