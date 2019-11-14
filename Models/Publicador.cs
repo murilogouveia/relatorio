@@ -8,7 +8,6 @@ namespace relatorio.Models
 {
     public class Publicador
     {
-        [Key]
         public int Id { get; set; }
 
         [MaxLength(80, ErrorMessage = "Este campo deve conter entre 3 e 80 caracteres")]
